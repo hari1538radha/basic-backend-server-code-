@@ -10,5 +10,13 @@ const signupschema = new mongoose.Schema(
 
     }
 )
+const productschema = new mongoose.Schema(
+    {
+        productUrl:String,
+        productName:String,
+        productPrice:Number
+    }
+)
 export const signupmodel = mongoose.model("signupdata",signupschema);
 
+export const productmodel = mongoose.model("productdata",productschema);

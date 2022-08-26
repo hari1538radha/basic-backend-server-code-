@@ -8,15 +8,17 @@ import mongoose from "mongoose";
 
 import { mongoURL }  from "./const/const.js"
 
-//import  {} from "./Routes/routes/js"
+import {addproductData} from "./Routes/routes.js"
+
 const app = express();
 
 app.use(cors());
 
 app.use(bodyParser.json());
 
-
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post("/product",addproductData)
 
 mongoose.connect(mongoURL).then((res)=>
 {
