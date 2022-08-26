@@ -23,7 +23,7 @@ app.get("/",(req,res)=>
     res.send("hello")
 })
 
-app.post("/productpage",addproductData)
+app.post("/product",addproductData)
 
 mongoose.connect(mongoURL).then((res)=>
 {
