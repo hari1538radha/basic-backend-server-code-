@@ -10,6 +10,7 @@ const signupschema = new mongoose.Schema(
 
     }
 
+
 )
 export const signupmodel = new mongoose.model("signupdata",signupschema);
 
@@ -21,6 +22,8 @@ const productschema = new mongoose.Schema(
         productPrice:Number
     }
 )
+
+);
 
 
 export const productmodel =  new mongoose.model("productdata",productschema);
