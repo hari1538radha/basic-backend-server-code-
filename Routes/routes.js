@@ -1,14 +1,14 @@
 
 import { SIGINmodel } from "../schema/schema.js"
 
-export const signinpage = (req, res) => {
+export const signuppage = (req, res) => {
 
-    console.log(req.body)
+
     if (req.body.userName && req.body.userEmail && req.body.userPassword && req.body.userImage && req.body.userAdminStatus) {
-        console.log('innnnnnnnn');
-        const Signin = new SIGINmodel(req.body);
+       
+        const Signup = new SIGINmodel(req.body);
 
-        Signin.save((err, data) => {
+        Signup.save((err, data) => {
             if (err) {
                 return res.send(err)
             }
