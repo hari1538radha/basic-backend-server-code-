@@ -9,7 +9,11 @@ const signupschema = new mongoose.Schema(
         userAdminStatus:Boolean
 
     }
+
 )
+export const signupmodel = new mongoose.model("signupdata",signupschema);
+
+
 const productschema = new mongoose.Schema(
     {
         productUrl:String,
@@ -17,6 +21,6 @@ const productschema = new mongoose.Schema(
         productPrice:Number
     }
 )
-export const signupmodel = mongoose.model("signupdata",signupschema);
 
-export const productmodel = mongoose.model("productdata",productschema);
+
+export const productmodel =  new mongoose.model("productdata",productschema);

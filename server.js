@@ -18,7 +18,12 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/product",addproductData)
+app.get("/",(req,res)=>
+{
+    res.send("hello")
+})
+
+app.post("/productpage",addproductData)
 
 mongoose.connect(mongoURL).then((res)=>
 {
