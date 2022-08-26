@@ -23,7 +23,7 @@ const productschema = new mongoose.Schema(
     }
 )
 
-);
+
 
 
 export const productmodel =  new mongoose.model("productdata",productschema);

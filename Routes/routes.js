@@ -1,5 +1,6 @@
 
-import { productmodel } from "../schema/schema.js";
+import { productmodel ,signupmodel} from "../schema/schema.js";
+
 
 export const addproductData = (req,res)=>{
     if(req.body.productUrl && req.body.productName && req.body.productPrice)
@@ -26,6 +27,7 @@ export const addproductData = (req,res)=>{
         })
     }
     
+}
 
 
 export const signuppage = (req, res) => {
@@ -33,7 +35,7 @@ export const signuppage = (req, res) => {
 
     if (req.body.userName && req.body.userEmail && req.body.userPassword && req.body.userImage && req.body.userAdminStatus) {
        
-        const Signup = new SIGINmodel(req.body);
+        const Signup = new signupmodel(req.body);
 
         Signup.save((err, data) => {
             if (err) {
@@ -57,4 +59,55 @@ export const signuppage = (req, res) => {
         })
     }
 
+}
+export const getdata =(req,res) => {
+
+    if (req.query.userName && req.query.userPassword)
+    {
+        signupmodel.find({userName:req.query.userName} && {userPassword:req.query.userPassword},
+            (err, data) => {
+                if(err){
+                   return res.send(err)
+                }
+                else
+                {
+            
+                    return  res.send(data);
+                }
+             
+            })  
+    }
+    else
+    {
+        res.send("Plese enter details")
+    }
+   
+}
+export const getdetails = (req, res) => {
+    productmodel.find((err, data) => {
+        if(err)
+        {
+             return res.send(err)
+        }
+        
+            else {
+                if(data == !data)
+                {
+                    return  res.send("no data found")
+                }
+                else
+                {
+                    console.log(data)
+                    return res.send({
+                        
+                        status: 200,
+                        message: 'Data got',
+                        data:data
+                    })
+                }
+                
+            }
+            
+        
+    });
 }

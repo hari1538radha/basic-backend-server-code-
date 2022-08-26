@@ -9,10 +9,8 @@ import mongoose from "mongoose";
 import { mongoURL }  from "./const/const.js"
 
 
-import {addproductData} from "./Routes/routes.js"
+import  {signuppage,getdata,getdetails,addproductData} from "./Routes/routes.js"
 
-
-import  {signuppage} from "./Routes/routes.js"
 
 const app = express();
 
@@ -28,11 +26,13 @@ app.get("/",(req,res)=>
     res.send("hello")
 })
 
-app.post("/product",addproductData)
+app.post("/products",addproductData)
 
 
-
+app.get("/display",getdetails)
 app.post("/signup",signuppage)
+app.get("/login",getdata)
+
 
 
 mongoose.connect(mongoURL).then((res)=>
