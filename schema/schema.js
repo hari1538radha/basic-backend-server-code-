@@ -9,6 +9,6 @@ const signupschema = new mongoose.Schema(
         userAdminStatus:Boolean
 
     }
-)
-export const signupmodel = mongoose.model("signupdata",signupschema);
+);
+export const SIGINmodel = new mongoose.model("signupdata",signupschema);
 
